@@ -10,6 +10,7 @@ import { AuthModule } from '@thallesp/nestjs-better-auth';
 import { NodePgDatabase } from 'drizzle-orm/node-postgres';
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
+import { TodosModule } from './todos/todos.module';
 
 @Module({
   controllers: [AppController],
@@ -37,7 +38,8 @@ import { drizzleAdapter } from 'better-auth/adapters/drizzle';
         })
       }),
       inject: ['DRIZZLE']
-    })
+    }),
+    TodosModule
   ],
 })
 export class AppModule { }

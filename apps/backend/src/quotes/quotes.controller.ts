@@ -1,12 +1,15 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Get, Post, Body, Patch, Param, Delete, ValidationPipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, ValidationPipe, Scope } from '@nestjs/common';
 import { QuotesService } from './quotes.service';
 import { CreateQuoteDto } from './dto/create-quote.dto';
 import { UpdateQuoteDto } from './dto/update-quote.dto';
 import { BooleanPipe } from './pipe/boolean.pipe';
 import { type CreateQuote } from './quotes-schema';
 
-@Controller('quotes')
+@Controller({
+  path: 'quotes',
+  scope: Scope?.DEFAULT,
+})
 export class QuotesController {
   constructor(private readonly quotesService: QuotesService) { }
 

@@ -4,13 +4,14 @@ import { QuotesService } from './quotes.service';
 import { CreateQuoteDto } from './dto/create-quote.dto';
 import { UpdateQuoteDto } from './dto/update-quote.dto';
 import { BooleanPipe } from './pipe/boolean.pipe';
+import { type CreateQuote } from './quotes-schema';
 
 @Controller('quotes')
 export class QuotesController {
   constructor(private readonly quotesService: QuotesService) { }
 
   @Post()
-  create(@Body(ValidationPipe, BooleanPipe) createQuoteDto: CreateQuoteDto) {
+  create(@Body() createQuoteDto: CreateQuote) {
     return this.quotesService.create(createQuoteDto);
   }
 

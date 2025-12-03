@@ -11,6 +11,7 @@ import { NodePgDatabase } from 'drizzle-orm/node-postgres';
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { TodosModule } from './todos/todos.module';
+import { TrialsModule } from './trials/trials.module';
 
 @Module({
   controllers: [AppController],
@@ -39,7 +40,8 @@ import { TodosModule } from './todos/todos.module';
       }),
       inject: ['DRIZZLE']
     }),
-    TodosModule
+    TodosModule,
+    TrialsModule
   ],
 })
 export class AppModule { }

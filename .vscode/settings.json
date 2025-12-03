@@ -1,0 +1,10 @@
+{
+    "workbench.view.alwaysShowHeaderActions": true,
+    "workbench.view.showQuietly": {
+        "workbench.panel.output": false
+    },
+    "workbench.editor.alwaysShowEditorActions": false,
+    "workbench.editor.centeredLayoutFixedWidth": false,
+    "workbench.editor.enablePreviewFromCodeNavigation": false,
+    "editor.formatOnPaste": false
+}

@@ -17,12 +17,15 @@ const TestAuth = () => {
       },
     });
   };
+
+  const { data: session } = authClient.useSession();
   return (
     <React.Fragment>
       <main className="">
         <button type="button" onClick={signIn}>
           Sign Up
         </button>
+        <pre>{JSON.stringify(session?.user)}</pre>
       </main>
     </React.Fragment>
   );

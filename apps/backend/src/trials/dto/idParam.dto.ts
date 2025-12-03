@@ -1,11 +1,10 @@
 /* eslint-disable prettier/prettier */
-import { IsInt, IsNotEmpty, IsOptional } from "class-validator";
+import { IsNotEmpty, IsNumber } from "class-validator";
 
 
 
 export class IdParamDto {
-    // @IsNotEmpty()
-    // @IsInt()
-    @IsOptional()
+    @IsNotEmpty()
+    @IsNumber()
     id!: number;
 }

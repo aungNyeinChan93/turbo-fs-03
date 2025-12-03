@@ -13,9 +13,12 @@ import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { TodosModule } from './todos/todos.module';
 import { TrialsModule } from './trials/trials.module';
 
+
 @Module({
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+  ],
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
@@ -41,7 +44,8 @@ import { TrialsModule } from './trials/trials.module';
       inject: ['DRIZZLE']
     }),
     TodosModule,
-    TrialsModule
+    TrialsModule,
+
   ],
 })
 export class AppModule { }

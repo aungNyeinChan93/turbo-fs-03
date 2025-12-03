@@ -12,12 +12,9 @@ export class CustomeZodValidationPipe implements PipeTransform {
   ) { }
 
   async transform(value: Trial) {
-    const result = await this.schema.parseAsync(value)
-    if (!result) {
-      throw new BadRequestException({
-        statusCode: 400,
-      });
-    }
-    return result
+    const { success, data, error } = await this.schema.safeParseAsync(value)
+    if (!success) throw new BadRequestException(JSON.parse(error?.message))
+    // if (success) throw new BadRequestException(error?.format())
+    return data;
   }
 }
